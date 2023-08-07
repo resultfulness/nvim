@@ -1,5 +1,31 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
---
--- See the kickstart.nvim README for more information
-return {}
+-- simple, zero/minimal config plugins go here
+-- bigger plugins necessitate a separate file
+return {
+  { 'mbbill/undotree', config = function ()
+    vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndo Tree Toggle" })
+  end
+  },
+  { 'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end },
+  { 'windwp/nvim-autopairs', opts = {} },
+  { 'kylechui/nvim-surround', opts = {} },
+  { 'folke/trouble.nvim', opts = {}, config = function()
+      vim.keymap.set("n", "<f8>", "<cmd>TroubleToggle document_diagnostics<cr>", {silent = true, noremap = true})
+    end
+  },
+  { 'DaikyXendo/nvim-material-icon', config = function ()
+      local web_devicons_ok, web_devicons = pcall(require, "nvim-web-devicons")
+      if not web_devicons_ok then
+        return
+      end
+
+      local material_icon_ok, material_icon = pcall(require, "nvim-material-icon")
+      if not material_icon_ok then
+        return
+      end
+
+      web_devicons.setup({
+        override = material_icon.get_icons(),
+      })
+    end,
+  },
+}
