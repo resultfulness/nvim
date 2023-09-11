@@ -63,9 +63,6 @@ require('lazy').setup({
 
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
     },
   },
 
@@ -210,12 +207,17 @@ vim.o.termguicolors = true
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- ex settings
+vim.g.netrw_browse_split = 0
+vim.g.netrw_winsize = 25
+vim.g.netrw_keepdir = 0
+
 -- open ex
 -- go back to previous buffer if ex open
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-e>', function ()
   vim.g.netrw_browse_split = 0
-  vim.g.netrw_banner = 0
   vim.g.netrw_winsize = 25
+  vim.g.netrw_keepdir = 0
 
   if vim.bo.filetype ~= 'netrw' then
     vim.cmd.Ex()
@@ -262,6 +264,8 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = 'Mark file as e[x]ecutable' })
 
+vim.keymap.set("n", "<leader>mp", "<cmd>!md-preview %<CR>", { desc = '[M]arkdown html [p]review'})
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -307,8 +311,8 @@ vim.keymap.set('n', '<C-f>', function()
 end)
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files)
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files)
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
@@ -578,6 +582,9 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/my-snippets" } })
+
 
 -- clear snippets on insert mode exit
 -- https://github.com/L3MON4D3/LuaSnip/issues/258#issuecomment-1429989436

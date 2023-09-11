@@ -28,4 +28,17 @@ return {
       })
     end,
   },
+  {
+    "gukz/ftFT.nvim",
+    keys = { "f", "t", "F", "T" },
+    config = function ()
+
+      vim.g.ftFT_hl_group = "VisualNOS"
+      vim.g.ftFT_sight_hl_group = "AerialLine"
+
+      vim.g.ftFT_sight_enable = nil
+
+      require("ftFT").setup()
+    end
+  }
 }
