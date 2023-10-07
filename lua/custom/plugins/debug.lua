@@ -34,14 +34,14 @@ return {
     }
 
     -- Basic debugging keymaps, feel free to change to your liking!
-    vim.keymap.set('n', '<leader>Dc', dap.continue, { desc = '[D]ebug: Start/[C]ontinue' })
-    vim.keymap.set('n', '<leader>Di', dap.step_into, { desc = '[D]ebug: Step [I]nto' })
-    vim.keymap.set('n', '<leader>Dv', dap.step_over, { desc = '[D]ebug: Step O[v]er' })
-    vim.keymap.set('n', '<leader>Do', dap.step_out, { desc = '[D]ebug: Step [O]ut' })
-    vim.keymap.set('n', '<leader>Db', dap.toggle_breakpoint, { desc = '[D]ebug: Toggle [B]reakpoint' })
+    vim.keymap.set('n', '<leader>Dc', dap.continue, { desc = 'Start/[C]ontinue' })
+    vim.keymap.set('n', '<leader>Di', dap.step_into, { desc = 'Step [I]nto' })
+    vim.keymap.set('n', '<leader>Dv', dap.step_over, { desc = 'Step O[v]er' })
+    vim.keymap.set('n', '<leader>Do', dap.step_out, { desc = 'Step [O]ut' })
+    vim.keymap.set('n', '<leader>Db', dap.toggle_breakpoint, { desc = 'Toggle [B]reakpoint' })
     vim.keymap.set('n', '<leader>DB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    end, { desc = '[D]ebug: Set [B]reakpoint' })
+    end, { desc = 'Set [B]reakpoint' })
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
@@ -66,7 +66,7 @@ return {
     }
 
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-    vim.keymap.set('n', '<leader>Dt', dapui.toggle, { desc = '[D]ebug: UI [T]oggle' })
+    vim.keymap.set('n', '<leader>Dt', dapui.toggle, { desc = 'UI [T]oggle' })
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close

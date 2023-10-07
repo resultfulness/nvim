@@ -1,0 +1,30 @@
+snippet tds "typedef struct"
+	typedef struct $1 {
+		$0
+	} $1_t;
+
+snippet typedefs "typedef struct"
+	typedef struct $1 {
+		$0
+	} $1_t;
+
+snippet mall "allocate variable"
+	$1* $2 = ($1*) malloc(sizeof($1));
+	$0
+
+snippet is_null "is equal to null"
+	$1 == NULL
+
+snippet marr "allocate array"
+	$1* $2 = ($1*) malloc($3 * sizeof($1))
+	$0
+
+
+snippet main "main file stuff"
+	#include <stdio.h>
+	#include <stdlib.h>
+
+	int main(int argc, char **argv) {
+		$0
+		return 0;
+	}

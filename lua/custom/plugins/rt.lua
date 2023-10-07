@@ -3,8 +3,6 @@ return {
   config = function ()
     local rt = require('rust-tools')
 
-    rt.setup({
-      
-    })
+    rt.setup({ })
   end
 }
