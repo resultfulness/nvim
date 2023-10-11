@@ -1,6 +1,6 @@
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-vim.keymap.set({ 'n', 'v', 'i' }, '<C-e>', vim.cmd.Rex)
+vim.keymap.set({ 'n', 'v', 'i' }, '<C-e>', vim.cmd.Ex)
 
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = '[P]roject [V]iew' })
 
