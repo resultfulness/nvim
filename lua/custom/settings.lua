@@ -1,47 +1,39 @@
--- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
+vim.o.guicursor = ""
 
--- Set highlight on search
-vim.o.hlsearch = false
+-- allows finding files in current directory recursively using :fin/gf
+vim.o.path = vim.o.path .. '**'
 
--- Make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = true
 
--- tabs
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
+vim.o.smartindent = true
 
--- lines between cursor and window edge
-vim.o.scrolloff = 8
+-- disable mouse
+vim.o.mouse = ''
 
--- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.wrap = false
 
--- Enable break indent
-vim.o.breakindent = true
-
--- Save undo history
 vim.o.undofile = true
 
--- Case-insensitive searching UNLESS \C or capital in search
+vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- Keep signcolumn on by default
+vim.o.scrolloff = 8
 vim.wo.signcolumn = 'yes'
 
--- Decrease update time
+vim.o.termguicolors = true
+
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
-
 vim.opt.colorcolumn = "80"
+
+vim.g.netrw_banner = 0
+vim.g.netrw_browse_split = 0
+vim.g.netrw_altv = 1
+vim.g.netrw_liststyle = 3

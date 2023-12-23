@@ -4,21 +4,26 @@ return {
   config = function()
     local wk = require('which-key')
     wk.register({
-      D = {
-        name = '[D]ebug...'
-      },
-      g = { name = '[G]it...' },
-      l = { name = '[L]sp...' },
-      L = { name = '[L]azy...' },
-      p = { name = '[P]roject...' },
-      w = { name = '[W]iki...' },
-      s = { name = '[S]earch...' },
-      r = { name = '[R]efactor...' }
+      L = { name = 'Lazy...' },
+      p = { name = 'Project...' },
+      w = { name = 'Wiki...' },
+      s = { name = 'Filesys...' },
+      r = { name = 'Refactoring...' }
     }, { prefix = '<leader>' })
 
     wk.register({
-      m = { name = '[M]arkdown...'},
-      r = { name = '[R]efactor...'}
+      r = { name = 'Refactoring...' }
     }, { prefix = '<leader>', mode = 'v' })
+
+    vim.api.nvim_create_autocmd(
+      'LspAttach',
+      {
+        callback = function(ev)
+          wk.register({
+            g = { name = 'Git...' },
+            l = { name = 'LSP...' }
+          }, { prefix = '<leader>', buffer = ev.buf })
+        end
+      })
   end
 }

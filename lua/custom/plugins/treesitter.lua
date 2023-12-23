@@ -1,9 +1,7 @@
 return {
   -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
-  dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-  },
+  dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
   build = ':TSUpdate',
   config = function ()
     vim.defer_fn(function()
@@ -27,10 +25,10 @@ return {
           swap = {
             enable = true,
             swap_next = {
-              ['<leader>la'] = '@parameter.inner',
+              ['<leader>ln'] = { query = '@parameter.inner', desc = "LSP: Swap with next parameter" },
             },
             swap_previous = {
-              ['<leader>lA'] = '@parameter.inner',
+              ['<leader>lp'] = { '@parameter.inner', desc = "LSP: Swap with previous parameter" },
             },
           },
         },

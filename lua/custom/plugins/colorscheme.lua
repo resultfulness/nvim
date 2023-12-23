@@ -1,8 +1,8 @@
 return {
   -- Theme inspired by Atom
-  'navarasu/onedark.nvim',
+  'neanias/everforest-nvim',
+  version = false,
+  lazy = false,
   priority = 1000,
-  config = function()
-    vim.cmd.colorscheme 'onedark'
-  end,
+  config = function () vim.cmd.colorscheme('everforest') end
 }

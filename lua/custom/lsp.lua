@@ -1,37 +1,29 @@
--- [[ configure lsp ]]
---  this function gets run when an lsp connects to a particular buffer.
 local on_attach = function(_, bufnr)
-  -- note: remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- in this case, we create a function that lets us more easily define mappings specific
-  -- for lsp related items. it sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc, prefix)
     if desc and prefix then
-      desc = '[L]sp: ' .. desc
+      desc = 'LSP: ' .. desc
     end
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>lr', vim.lsp.buf.rename, '[R]e[n]ame', true)
+  nmap('<leader>lr', vim.lsp.buf.rename, 'Rename', true)
   nmap('<f2>', vim.lsp.buf.rename)
-  nmap('<leader>lc', vim.lsp.buf.code_action, '[C]ode [A]ction', true)
+  nmap('<leader>lc', vim.lsp.buf.code_action, 'Code action', true)
   nmap('<C-.>', vim.lsp.buf.code_action)
 
-  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-  nmap('<leader>ld', vim.lsp.buf.type_definition, 'Type [D]efinition', true)
-  nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document [S]ymbols', true)
-  nmap('<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols', true)
+  nmap('gd', vim.lsp.buf.definition, 'Goto definition')
+  nmap('gr', require('telescope.builtin').lsp_references, 'Goto references')
+  nmap('gI', vim.lsp.buf.implementation, 'Goto implementation')
+  nmap('<leader>ld', vim.lsp.buf.type_definition, 'Type definition', true)
+  nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document symbols', true)
+  nmap('<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace symbols', true)
 
   -- see `:help k` for why this keymap
-  nmap('K', vim.lsp.buf.hover, 'hover documentation')
+  nmap('K', vim.lsp.buf.hover, 'Hover documentation')
 
   -- lesser used lsp functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+  nmap('gD', vim.lsp.buf.declaration, 'Goto declaration')
 
   -- create a command `:format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -39,10 +31,8 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+-- server options
 local servers = {
-  tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -51,16 +41,13 @@ local servers = {
   },
 }
 
--- Setup neovim lua configuration
 require('neodev').setup()
 
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+-- nvim-cmp additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Ensure the servers above are installed
 local mason_lspconfig = require('mason-lspconfig')
-
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
