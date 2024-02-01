@@ -6,7 +6,7 @@ return {
   config = function ()
     vim.defer_fn(function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'c', 'css', 'go', 'html', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
+        ensure_installed = { 'c', 'css', 'html', 'lua', 'python', 'rust', 'javascript', 'typescript', 'vimdoc', 'vim' },
 
         auto_install = false,
 

@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>sv", vim.cmd.Ex, { desc = "Filesys: File browser" })
+vim.keymap.set("n", "<leader>st", vim.cmd.Ex, { desc = "Filesys: Show file tree" })
 
 vim.keymap.set("n", "<leader>Ls", ":Lazy sync<CR>", { desc = "Lazy sync" })
 
