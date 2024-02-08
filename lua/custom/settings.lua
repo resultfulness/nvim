@@ -1,4 +1,4 @@
-vim.o.guicursor = ""
+vim.o.guicursor = ''
 
 -- allows finding files in current directory recursively using :fin/gf
 vim.o.path = vim.o.path .. '**'
@@ -31,7 +31,7 @@ vim.o.termguicolors = true
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = '80'
 
 vim.g.netrw_banner = 0
 vim.g.netrw_browse_split = 0
