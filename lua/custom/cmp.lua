@@ -58,22 +58,13 @@ cmp.setup({
             luasnip.lsp_expand(args.body)
         end,
     },
-    mapping = cmp.mapping.preset.insert {
+    mapping = cmp.mapping.preset.insert({
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping(function()
-            if cmp.visible() then
-                cmp.abort()
-            else
-                cmp.complete()
-            end
-        end),
-        ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-y>'] = cmp.mapping.confirm({
             select = true,
-        },
+        }),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if luasnip.locally_jumpable(1) then
                 luasnip.jump(1)
@@ -88,7 +79,7 @@ cmp.setup({
                 fallback()
             end
         end, { 'i', 's' }),
-    },
+    }),
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
