@@ -15,23 +15,16 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
+
 require('lazy').setup({ { import = 'custom.plugins' } }, {})
 
 require('custom.settings')
 require('custom.keymaps')
 
 -- highlight on yank
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
         vim.highlight.on_yank()
     end,
-    group = highlight_group,
-    pattern = '*',
+    group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
 })
-
--- highlight trailing whitespace
-vim.cmd.match('SpellRare /\\s\\+$/')
-
-require('custom.lsp')
-require('custom.cmp')

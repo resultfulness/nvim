@@ -1,8 +1,10 @@
 return {
     'folke/which-key.nvim',
     opts = {},
+    event = 'VeryLazy',
     config = function()
         local wk = require('which-key')
+        wk.setup()
         wk.register({
             g = { name = 'Git...' },
             L = { name = 'Lazy...' },

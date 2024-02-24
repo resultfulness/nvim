@@ -1,5 +1,4 @@
 return {
-    -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
     build = ':TSUpdate',
@@ -13,23 +12,20 @@ return {
                 modules = {},
                 highlight = { enable = true },
                 indent = { enable = true },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = '<c-space>',
-                        node_incremental = '<c-space>',
-                        scope_incremental = '<c-s>',
-                        node_decremental = '<M-space>',
-                    },
-                },
                 textobjects = {
                     swap = {
                         enable = true,
                         swap_next = {
-                            ['<leader>ln'] = { query = '@parameter.inner', desc = 'LSP: Swap with next parameter' },
+                            ['<leader>ln'] = {
+                                query = '@parameter.inner',
+                                desc = 'LSP: Swap with next parameter'
+                            },
                         },
                         swap_previous = {
-                            ['<leader>lp'] = { query = '@parameter.inner', desc = 'LSP: Swap with previous parameter' },
+                            ['<leader>lp'] = {
+                                query = '@parameter.inner',
+                                desc = 'LSP: Swap with previous parameter'
+                            },
                         },
                     },
                 },

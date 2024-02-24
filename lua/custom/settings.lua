@@ -1,37 +1,42 @@
-vim.o.guicursor = ''
+vim.opt.guicursor = ''
 
 -- allows finding files in current directory recursively using :fin/gf
-vim.o.path = vim.o.path .. '**'
+vim.opt.path = vim.o.path .. '**'
 
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.smartindent = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
 
 -- disable mouse
-vim.o.mouse = ''
+vim.opt.mouse = ''
 
-vim.o.wrap = false
+vim.opt.wrap = false
 
-vim.o.undofile = true
+vim.opt.undofile = true
 
-vim.o.hlsearch = false
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.opt.hlsearch = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-vim.o.scrolloff = 8
-vim.wo.signcolumn = 'yes'
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = 'yes'
 
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
 vim.opt.colorcolumn = '80'
+
+vim.opt.list = true
+vim.opt.listchars = { tab = '› ', trail = '•', nbsp = '␣' }
+
+vim.opt.inccommand = 'split'
 
 vim.g.netrw_banner = 0
 vim.g.netrw_browse_split = 0
