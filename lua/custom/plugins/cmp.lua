@@ -55,7 +55,6 @@ return {
             },
             window = {
                 completion = {
-                    winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
                     side_padding = 0,
                 },
             },
