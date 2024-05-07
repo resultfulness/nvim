@@ -11,7 +11,8 @@ return {
             p = { name = 'Project...' },
             w = { name = 'Wiki...' },
             s = { name = 'Filesys...' },
-            r = { name = 'Refactoring...' }
+            r = { name = 'Refactoring...' },
+            h = { name = 'Harpoon...' }
         }, { prefix = '<leader>' })
 
         wk.register({

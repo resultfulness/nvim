@@ -33,7 +33,7 @@ return {
             nmap('<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace symbols', true)
 
             nmap('K', vim.lsp.buf.hover, 'Hover documentation')
-            nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature help')
+            vim.keymap.set({'n', 'i'}, '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature help' })
 
             nmap('gD', vim.lsp.buf.declaration, 'Goto declaration')
 
