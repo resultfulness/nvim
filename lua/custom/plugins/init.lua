@@ -1,19 +1,20 @@
+-- misc plugins
 return {
     -- detects tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
 
     {
         'mbbill/undotree',
-        config = function()
-            vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undotree: Open undotree' })
+        config = function ()
+            vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
         end
     },
 
-    { 'numToStr/Comment.nvim',  opts = {} },
+    { 'numToStr/Comment.nvim', opts = {} },
     {
         'norcalli/nvim-colorizer.lua',
-        config = function() require('colorizer').setup() end
+        config = function () require('colorizer').setup() end
     },
-    { 'windwp/nvim-autopairs',  opts = {} },
+    { 'windwp/nvim-autopairs', opts = {} },
     { 'kylechui/nvim-surround', opts = {} },
 }

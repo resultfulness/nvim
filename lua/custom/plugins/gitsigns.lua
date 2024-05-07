@@ -8,11 +8,11 @@ return {
             topdelete = { text = '‾' },
             changedelete = { text = '~' },
         },
-        on_attach = function(bufnr)
+        on_attach = function (bufnr)
             local gs = require('gitsigns')
-            vim.keymap.set('n', '<leader>gp', gs.prev_hunk, { buffer = bufnr, desc = 'Git: Go to previous hunk' })
-            vim.keymap.set('n', '<leader>gn', gs.next_hunk, { buffer = bufnr, desc = 'Git: Go to next hunk' })
-            vim.keymap.set('n', '<leader>gh', gs.preview_hunk, { buffer = bufnr, desc = 'Git: Preview hunk' })
+            vim.keymap.set('n', '[g', gs.prev_hunk, { buffer = bufnr })
+            vim.keymap.set('n', ']g', gs.next_hunk, { buffer = bufnr })
+            vim.keymap.set('n', '<leader>g', gs.preview_hunk, { buffer = bufnr })
         end,
     },
 }

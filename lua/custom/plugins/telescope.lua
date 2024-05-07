@@ -8,10 +8,10 @@ return {
         {
             'nvim-telescope/telescope-fzf-native.nvim',
             build = 'make',
-            cond = function() return vim.fn.executable 'make' == 1 end,
+            cond = function () return vim.fn.executable 'make' == 1 end,
         },
     },
-    config = function()
+    config = function ()
         require('telescope').setup({
             extensions = {
                 ['ui-select'] = { require('telescope.themes').get_dropdown() }
@@ -24,12 +24,13 @@ return {
 
         local b = require('telescope.builtin')
 
-        vim.keymap.set('n', '<leader>?', b.help_tags, { desc = 'Help' })
-        vim.keymap.set('n', '<leader><leader>', b.buffers, { desc = 'Open buffers' })
-        vim.keymap.set('n', '<leader>sf', b.find_files, { desc = 'Filesys: Search files' })
+        vim.keymap.set('n', '<leader><leader>', b.resume)
+        vim.keymap.set('n', '<leader>?', b.help_tags)
+        vim.keymap.set('n', '<leader>b', b.buffers)
+        vim.keymap.set('n', '<leader>f', b.find_files)
         vim.keymap.set('n', '<C-p>', b.git_files)
-        vim.keymap.set('n', '<leader>sg', b.live_grep, { desc = 'Filesys: Search by grep' })
-        vim.keymap.set('n', '<leader>gs', b.git_status, { desc = 'Git: Status' })
-        vim.keymap.set('n', '<leader>ss', b.resume, { desc = 'Filesys: Resume search' })
+        vim.keymap.set('n', '<leader>/', b.live_grep)
+        vim.keymap.set('n', '<leader>sg', b.git_status)
+        vim.keymap.set({ 'n', 'x' }, '<leader>R', require('telescope').extensions.refactoring.refactors)
     end
 }

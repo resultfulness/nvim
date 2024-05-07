@@ -5,7 +5,7 @@ return {
         -- snippets
         {
             'L3MON4D3/LuaSnip',
-            build = (function() return 'make install_jsregexp' end)(),
+            build = (function () return 'make install_jsregexp' end)(),
         },
         'saadparwaiz1/cmp_luasnip',
         'hrsh7th/cmp-nvim-lsp',
@@ -15,39 +15,11 @@ return {
         -- customize cmp
         'onsails/lspkind.nvim',
     },
-    config = function()
+    config = function ()
         local cmp = require('cmp')
         local luasnip = require('luasnip')
 
         luasnip.config.setup()
-
-        local cmp_icons = {
-            Text = '  ',
-            Method = '  ',
-            Function = '  ',
-            Constructor = '  ',
-            Field = '  ',
-            Variable = '  ',
-            Class = '  ',
-            Interface = '  ',
-            Module = '  ',
-            Property = '  ',
-            Unit = '  ',
-            Value = '  ',
-            Enum = '  ',
-            Keyword = '  ',
-            Snippet = '  ',
-            Color = '  ',
-            File = '  ',
-            Reference = '  ',
-            Folder = '  ',
-            EnumMember = '  ',
-            Constant = '  ',
-            Struct = '  ',
-            Event = '  ',
-            Operator = '  ',
-            TypeParameter = '  ',
-        }
 
         cmp.setup({
             completion = {
@@ -55,22 +27,27 @@ return {
             },
             window = {
                 completion = {
-                    side_padding = 0,
-                },
+                    side_padding = 0
+                }
             },
             formatting = {
                 expandable_indicator = true,
-                fields = { 'kind', 'abbr' },
+                fields = { 'kind', 'abbr', 'menu' },
                 format = function(entry, vim_item)
                     local kind = require('lspkind').cmp_format({
-                        mode = 'symbol',
+                        mode = 'symbol_text',
                         maxwidth = 50,
-                        symbol_map = cmp_icons
                     })(entry, vim_item)
 
+                    local strings = vim.split(
+                        kind.kind,
+                        '%s',
+                        { trimempty = true }
+                    )
                     -- surround icon with whitespace
-                    local strings = vim.split(kind.kind, '%s', { trimempty = true })
                     kind.kind = ' ' .. (strings[1] or '') .. ' '
+                    -- add kind text
+                    kind.menu = '    ' .. (strings[2] or '')
 
                     return kind
                 end,

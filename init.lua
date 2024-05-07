@@ -16,14 +16,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({ { import = 'custom.plugins' } }, {})
-
 require('custom.settings')
 require('custom.keymaps')
 
+require('lazy').setup({ { import = 'custom.plugins' } }, {})
+
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
+    callback = function ()
         vim.highlight.on_yank()
     end,
     group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),

@@ -1,7 +1,7 @@
 vim.opt.guicursor = ''
 
 -- allows finding files in current directory recursively using :fin/gf
-vim.opt.path = vim.o.path .. '**'
+vim.opt.path:append('**')
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -41,6 +41,7 @@ vim.opt.inccommand = 'split'
 vim.g.netrw_banner = 0
 vim.g.netrw_browse_split = 0
 vim.g.netrw_altv = 1
-vim.g.netrw_liststyle = 3
+vim.g.netrw_liststyle = 0
+vim.g.netrw_localcopydircmd = 'cp -r'
 
 vim.g.c_syntax_for_h = 1
