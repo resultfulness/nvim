@@ -12,7 +12,7 @@ return {
             local gs = require('gitsigns')
             vim.keymap.set('n', '[g', gs.prev_hunk, { buffer = bufnr })
             vim.keymap.set('n', ']g', gs.next_hunk, { buffer = bufnr })
-            vim.keymap.set('n', '<leader>g', gs.preview_hunk, { buffer = bufnr })
+            vim.keymap.set('n', '<C-g>', gs.preview_hunk, { buffer = bufnr })
         end,
     },
 }

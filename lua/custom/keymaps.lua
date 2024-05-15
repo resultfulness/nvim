@@ -30,9 +30,8 @@ local keymaps = {
     -- change all occurences of word under cursor
     { 'n', '<leader>S', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<left><left><left>]] },
 
-    -- file into and from executable
-    { 'n', '<leader>x', '<cmd>!chmod +x %<cr>', { silent = true } },
-    { 'n', '<leader>X', '<cmd>!chmod -x %<cr>', { silent = true } },
+    -- mark as executable
+    { 'n', '<leader>X', '<cmd>!chmod +x %<cr>', { silent = true } },
 
     -- diagnostics
     -- previous
