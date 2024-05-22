@@ -38,6 +38,8 @@ vim.opt.listchars = { tab = '› ', trail = '•', nbsp = '␣' }
 
 vim.opt.inccommand = 'split'
 
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
 vim.g.netrw_banner = 0
 vim.g.netrw_browse_split = 0
 vim.g.netrw_altv = 1

@@ -25,7 +25,7 @@ local keymaps = {
     { 'n', '<leader>Y', [["+Y]] },
 
     -- formatting
-    { 'n', '<leader>F', vim.lsp.buf.format },
+    { 'n', '<leader>f', vim.lsp.buf.format },
 
     -- change all occurences of word under cursor
     { 'n', '<leader>S', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<left><left><left>]] },

@@ -27,10 +27,9 @@ return {
         vim.keymap.set('n', '<leader><leader>', b.resume)
         vim.keymap.set('n', '<leader>?', b.help_tags)
         vim.keymap.set('n', '<leader>b', b.buffers)
-        vim.keymap.set('n', '<leader>f', b.find_files)
+        vim.keymap.set('n', '<leader>sf', b.find_files)
         vim.keymap.set('n', '<C-p>', b.git_files)
         vim.keymap.set('n', '<leader>/', b.live_grep)
         vim.keymap.set('n', '<leader>sg', b.git_status)
-        vim.keymap.set({ 'n', 'x' }, '<leader>R', require('telescope').extensions.refactoring.refactors)
     end
 }

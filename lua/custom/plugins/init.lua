@@ -17,4 +17,10 @@ return {
     },
     { 'windwp/nvim-autopairs', opts = {} },
     { 'kylechui/nvim-surround', opts = {} },
+
+    {
+        "m4xshen/hardtime.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        opts = {}
+    }
 }
