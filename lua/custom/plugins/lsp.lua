@@ -4,9 +4,6 @@ return {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
 
-        -- nvim stuff
-        'folke/neodev.nvim',
-
         -- lsp loading preview
         { 'j-hui/fidget.nvim', opts = {} },
     },
@@ -49,8 +46,6 @@ return {
                 },
             },
         }
-
-        require('neodev').setup()
 
         -- nvim-cmp additional completion capabilities
         local capabilities = vim.lsp.protocol.make_client_capabilities()
