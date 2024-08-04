@@ -9,6 +9,6 @@ return {
 
         neogen.setup({ snippet_engine = 'luasnip' })
 
-        vim.keymap.set('n', '<leader>N', neogen.generate)
+        vim.keymap.set('n', '<leader>N', neogen.generate, { desc = 'generate doc template' })
     end,
 }

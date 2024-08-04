@@ -1,13 +1,10 @@
 local keymaps = {
-    -- directory browser
-    { 'n', '<leader>st', vim.cmd.Ex },
+    { 'n', '<leader>st', vim.cmd.Ex, { desc = 'directory browser' }},
 
-    -- move visual selection up and down
-    { 'v', 'J', [[:m '>+1<CR>gv=gv]] },
-    { 'v', 'K', [[:m '<-2<CR>gv=gv]] },
+    { 'v', 'J', [[:m '>+1<CR>gv=gv]], { desc = 'move visual selection up' }},
+    { 'v', 'K', [[:m '<-2<CR>gv=gv]], { desc = 'move visual selection up' }},
 
-    -- keep cursor in place when joining lines
-    { 'n', 'J', 'mzJ`z' },
+    { 'n', 'J', 'mzJ`z', { desc = 'join lines keeping cursor in place' }},
 
     -- center on cursor on common actions
     { 'n', '<C-d>', '<C-d>zz' },
@@ -15,33 +12,22 @@ local keymaps = {
     { 'n', 'n', 'nzz' },
     { 'n', 'N', 'Nzz' },
 
-    -- paste over without copyting (greatest remap ever)
-    { 'x', '<leader>p', [["_dP]] },
-    -- delete without copying
-    { { 'n', 'v' }, '<leader>d', [["_d]] },
+    { 'x', '<leader>p', [["_dP]], { desc = 'paste without copying' }},
+    { { 'n', 'v' }, '<leader>d', [["_d]], { desc = 'delete without copying' }},
 
-    -- yanking to system clipboard (next greatest remap ever : asbjornHaland)
-    { { 'n', 'v' }, '<leader>y', [["+y]] },
-    { 'n', '<leader>Y', [["+Y]] },
+    { { 'n', 'v' }, '<leader>y', [["+y]], { desc = 'yank to system clipboard' }},
+    { 'n', '<leader>Y', [["+Y]], { desc = 'yank line to system clipboard' }},
 
-    -- formatting
-    { 'n', '<leader>f', vim.lsp.buf.format },
+    { 'n', '<leader>f', vim.lsp.buf.format, { desc = 'format buffer' }},
 
-    -- change all occurences of word under cursor
-    { 'n', '<leader>S', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<left><left><left>]] },
+    { 'n', '<leader>S', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<left><left><left>]], { desc = 'change all occurrences of word under cursor' }},
 
-    -- mark as executable
-    { 'n', '<leader>X', '<cmd>!chmod +x %<cr>', { silent = true } },
+    { 'n', '<leader>X', '<cmd>!chmod +x %<cr>', { desc = 'mark current file as executable', silent = true }},
 
-    -- diagnostics
-    -- previous
-    { 'n', '[d', vim.diagnostic.goto_prev },
-    -- next
-    { 'n', ']d', vim.diagnostic.goto_next },
-    -- expand diagnostic message
-    { 'n', '<leader>e', vim.diagnostic.open_float },
-    -- open list
-    { 'n', '<leader>q', vim.diagnostic.setloclist },
+    { 'n', '[d', vim.diagnostic.goto_prev, { desc = 'previous diagnostic' }},
+    { 'n', ']d', vim.diagnostic.goto_next, { desc = 'next diagnostic' }},
+    { 'n', '<leader>e', vim.diagnostic.open_float, { desc = 'show diagnostic message' }},
+    { 'n', '<leader>q', vim.diagnostic.setloclist, { desc = 'open diagnostic list' }},
 }
 
 for _, keymap in ipairs(keymaps) do
