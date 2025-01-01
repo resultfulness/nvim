@@ -15,7 +15,7 @@ return {
                     vim.keymap.set('n', mapping, fn, { buffer = event.buf, desc = desc })
                 end
 
-                map_n('<leader>r', vim.lsp.buf.rename, 'rename')
+                map_n('<leader>rn', vim.lsp.buf.rename, 'rename')
                 map_n('<f2>', vim.lsp.buf.rename, 'rename')
                 map_n('<leader>.', vim.lsp.buf.code_action, 'code action')
                 map_n('<C-.>', vim.lsp.buf.code_action, 'code action')

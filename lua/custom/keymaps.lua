@@ -12,7 +12,6 @@ local keymaps = {
     { 'n', 'n', 'nzz' },
     { 'n', 'N', 'Nzz' },
 
-    { 'x', '<leader>p', [["_dP]], { desc = 'paste without copying' }},
     { { 'n', 'v' }, '<leader>d', [["_d]], { desc = 'delete without copying' }},
 
     { { 'n', 'v' }, '<leader>y', [["+y]], { desc = 'yank to system clipboard' }},
