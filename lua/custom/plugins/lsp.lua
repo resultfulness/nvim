@@ -1,9 +1,6 @@
 return {
     'neovim/nvim-lspconfig',
     dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-
         -- lsp loading preview
         { 'j-hui/fidget.nvim', opts = {} },
     },
@@ -81,20 +78,13 @@ return {
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-        require('mason').setup()
-        local mason_lspconfig = require('mason-lspconfig')
-        mason_lspconfig.setup({
-            ensure_installed = vim.tbl_keys(servers),
-        })
+        for server_name in pairs(servers) do
+            require('lspconfig')[server_name].setup({
+                capabilities = capabilities,
+                settings = servers[server_name],
+                filetypes = (servers[server_name] or {}).filetypes,
+            })
+        end
 
-        mason_lspconfig.setup_handlers({
-            function (server_name)
-                require('lspconfig')[server_name].setup({
-                    capabilities = capabilities,
-                    settings = servers[server_name],
-                    filetypes = (servers[server_name] or {}).filetypes,
-                })
-            end
-        })
     end
 }
