@@ -72,6 +72,10 @@ return {
                     telemetry = { enable = false },
                 },
             },
+            emmet_language_server = {},
+            gopls = {},
+            ts_ls = {},
+            svelte = {},
         }
 
         -- nvim-cmp additional completion capabilities
