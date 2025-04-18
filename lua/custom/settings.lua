@@ -3,6 +3,8 @@ vim.opt.guicursor = ''
 -- allows finding files in current directory recursively using :fin/gf
 vim.opt.path:append('**')
 
+vim.opt.foldmethod = "marker"
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
