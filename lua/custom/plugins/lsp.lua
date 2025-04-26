@@ -73,9 +73,11 @@ return {
                 },
             },
             emmet_language_server = {},
-            gopls = {},
             ts_ls = {},
             svelte = {},
+            cssls = {},
+            html = {},
+            jsonls = {},
         }
 
         -- nvim-cmp additional completion capabilities
