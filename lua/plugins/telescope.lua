@@ -28,9 +28,9 @@ return {
         vim.keymap.set('n', '<leader>?', b.help_tags, { desc = 'search help' })
         vim.keymap.set('n', '<leader>b', b.buffers, { desc = 'search buffers' })
         vim.keymap.set('n', '<leader>sf', b.find_files, { desc = 'search files' })
-        vim.keymap.set('n', '<leader>sw', b.grep_string, { desc = 'search word under cursor'})
         vim.keymap.set('n', '<C-p>', b.git_files, { desc = 'search git files' })
         vim.keymap.set('n', '<leader>/', b.live_grep, { desc = 'search for string in files' })
-        vim.keymap.set('n', '<leader>sg', b.git_status, { desc = 'show git status' })
+        vim.keymap.set('n', '<leader>sg', b.live_grep, { desc = 'search for string in files' })
+        vim.keymap.set('n', '<leader>gs', b.git_status, { desc = 'show git status' })
     end
 }

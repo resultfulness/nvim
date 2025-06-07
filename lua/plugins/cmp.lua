@@ -25,11 +25,6 @@ return {
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
                 { name = 'path' },
-                {
-                    name = 'lazydev',
-                    -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
-                    group_index = 0,
-                },
             },
             mapping = cmp.mapping.preset.insert({
                 ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -58,9 +53,7 @@ return {
             },
         })
 
-        for _, f in ipairs(
-            vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)
-        ) do
+        for _, f in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
             loadfile(f)()
         end
     end

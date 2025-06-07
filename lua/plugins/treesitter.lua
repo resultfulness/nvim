@@ -5,7 +5,18 @@ return {
     config = function ()
         vim.defer_fn(function ()
             require('nvim-treesitter.configs').setup({
-                ensure_installed = { 'c', 'css', 'html', 'lua', 'python', 'rust', 'javascript', 'typescript', 'vimdoc', 'vim' },
+                ensure_installed = {
+                    'c',
+                    'css',
+                    'html',
+                    'lua',
+                    'python',
+                    'rust',
+                    'javascript',
+                    'typescript',
+                    'vimdoc',
+                    'vim'
+                },
                 auto_install = false,
                 sync_install = false,
                 ignore_install = {},
@@ -16,10 +27,10 @@ return {
                     swap = {
                         enable = true,
                         swap_next = {
-                            ['<leader>]'] = { query = '@parameter.inner', desc = 'swap with next' },
+                            [']j'] = { query = '@parameter.inner', desc = 'swap with next' },
                         },
                         swap_previous = {
-                            ['<leader>['] = { query = '@parameter.inner', desc = 'swap with previous' },
+                            ['[j'] = { query = '@parameter.inner', desc = 'swap with previous' },
                         },
                     },
                 },
