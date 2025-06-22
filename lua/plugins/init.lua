@@ -4,7 +4,15 @@ return {
         version = false,
         lazy = false,
         priority = 1000,
-        config = function () vim.cmd.colorscheme('everforest') end
+        config = function ()
+            vim.cmd.colorscheme('everforest')
+        end
+    },
+    {
+        "m4xshen/hardtime.nvim",
+        lazy = false,
+        dependencies = { "MunifTanjim/nui.nvim" },
+        opts = {},
     },
     -- detects tabstop and shiftwidth automatically
     'tpope/vim-sleuth',

@@ -23,6 +23,10 @@ local servers = {
         cmd = { 'rust-analyzer' },
         filetypes = { 'rust' },
         root_markers = { 'Cargo.toml' }
+    },
+    qmlls = {
+        cmd = { '/usr/lib/qt6/bin/qmlls', '-E' },
+        filetypes = { 'qml' }
     }
 }
 
@@ -43,6 +47,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references, { buffer = event.buf, desc = 'show references' })
         vim.keymap.set('n', 'grt', require('telescope.builtin').lsp_type_definitions, { buffer = event.buf, desc = 'goto type' })
         vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, { buffer = event.buf })
+        vim.keymap.set('n', 'K', function () vim.lsp.buf.hover({
+            border = "rounded"
+        }) end, { buffer = event.buf })
 
         -- create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(
