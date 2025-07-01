@@ -27,6 +27,23 @@ local servers = {
     qmlls = {
         cmd = { '/usr/lib/qt6/bin/qmlls', '-E' },
         filetypes = { 'qml' }
+    },
+    -- html = {
+    --     cmd = { 'vscode-html-language-server', '--stdio' },
+    --     filetypes = { 'html' },
+    --     init_options = {
+    --         provideFormatter = true,
+    --         embeddedLanguages = { css = true, javascript = true },
+    --         configurationSection = { 'html', 'css', 'javascript' },
+    --     },
+    -- },
+    css = {
+        cmd = { 'vscode-css-language-server', '--stdio' },
+        filetypes = { 'css' },
+    },
+    emmet = {
+        cmd = { '/home/alice/.local/share/pnpm/emmet-language-server', '--stdio' },
+        filetypes = { 'html', 'css' },
     }
 }
 
