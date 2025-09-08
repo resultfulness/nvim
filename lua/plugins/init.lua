@@ -66,6 +66,7 @@ return {
                 changedelete = { text = '~' },
                 untracked = { text = 'U' }
             },
+            current_line_blame = true,
             on_attach = function (bufnr)
                 local gs = require('gitsigns')
                 vim.keymap.set('n', '[g', function () gs.nav_hunk('prev') end, { buffer = bufnr, desc = 'previous git change' })
@@ -79,9 +80,5 @@ return {
         opts = {
             show_success_message = true,
         }
-    },
-    {
-        "j-hui/fidget.nvim",
-        opts = {},
     },
 }
