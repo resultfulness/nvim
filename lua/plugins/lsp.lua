@@ -23,11 +23,11 @@ return {
                 cmd = { '/usr/lib/qt6/bin/qmlls' }
             },
             cssls = {},
-            emmet_language_server = {},
             svelte = {},
             gopls = {},
             clangd = {},
             ts_ls = {},
+            emmet_language_server = {},
         }
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -42,12 +42,11 @@ return {
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
             callback = function(event)
-                vim.keymap.set('n', '<f2>', vim.lsp.buf.rename, { buffer = event.buf, desc = 'rename' })
-                vim.keymap.set('n', '<leader>.', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'code action' })
-                vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references,
-                    { buffer = event.buf, desc = 'show references' })
-                vim.keymap.set('n', 'grt', require('telescope.builtin').lsp_type_definitions,
-                    { buffer = event.buf, desc = 'goto type' })
+                vim.keymap.set('n', '<f2>', vim.lsp.buf.rename, { buffer = event.buf })
+                vim.keymap.set('n', '<leader>.', vim.lsp.buf.code_action, { buffer = event.buf })
+                vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references, { buffer = event.buf })
+                vim.keymap.set('n', 'grt', require('telescope.builtin').lsp_type_definitions, { buffer = event.buf })
+                vim.keymap.set('n', 'grd', vim.lsp.buf.definition, { buffer = event.buf })
                 vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, { buffer = event.buf })
                 vim.keymap.set('n', 'K', function()
                     vim.lsp.buf.hover({
